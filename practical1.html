@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>
+	Write a program to -<br />
+		1) Create variables of the following types:
+			int, string, boolean, object, array<br />
+		2) Add values in array(can be value of any type).<br />
+		3) Delete values from the array using array built in methods.<br />
+		4) Toggle values of boolean variables<br />
+		5) Concatenate string with more values(without creating new string variables).
+</p>
+<script>
+
+// Creating variables
+
+var int = 4;
+var string = "Shyam";
+var boolean = true;
+var object = {};
+var array = [];
+
+console.log(int);
+console.log(string);
+console.log(boolean);
+console.log(object);
+console.log(array);
+
+// Add values in array
+
+array[0] = 4;
+array[1] = "sss";
+array[2] = (function() {
+	console.log("Hello, I am function");
+});
+array[3] = false;
+array[4] = {};
+console.log(array);
+
+// Delete values from the array  using array built in methods
+
+array.pop();			// Using pop
+console.log(array);
+array.shift();			// Using shift
+console.log(array);
+delete array[0];		// using delete
+console.log(array);
+
+// Toggle values of boolean variables
+
+boolean = !boolean;
+console.log(boolean);
+
+// Concatenate string with more values(without creating new string variables)
+
+string = string.concat(" Sapate");
+console.log(string);
+
+</script>
+</body>
+</html>

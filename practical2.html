@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>
+	Write a program that uses at least three ways to create an object variable, array variable
+</p>
+<script>
+
+var obj1 = new Object();					// Object Using New Keyword
+
+var obj2 = {};								// Object Using Literal Notation
+var obj3 = {
+	firstName: "Shyam",
+	lastName: "Sapate",
+	age: 26,
+	fullName: (function() {
+		fullName = this.firstName + " " + this.lastName;
+	}),
+};
+
+var Person = function(firstName, lastName) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+};
+var obj4 = new Person("Shyam", "Sapate");	// Object Using Object Constructor
+var obj5 = Object.create(Object);			// Object Using Object Prototype
+
+var arr1 = new Array();						// Array Using New Keyword
+var arr2 = new Array(4);
+var arr3 = new Array("aaa", [], 4, true, {});
+var arr4 = [];								// Array Using Literal Notation
+var arr5 = ["Shyam", 26, "Amravati", true];
+
+console.log(obj1);
+console.log(obj2);
+console.log(obj3["fullName"]);
+console.log(obj4);
+console.log(obj5);
+console.log(arr1);
+console.log(arr2);
+console.log(arr3);
+console.log(arr4);
+console.log(arr5);
+</script>
+</body>
+</html>

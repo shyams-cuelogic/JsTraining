@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p>
+	Write a program to create functions that will do the following -<br />
+		1. Add 2 numbers<br />
+		2. Subtract 2 numbers<br />
+		3. Divide 2 numbers<br />
+		4. Multiply 2 numbers<br />
+		5. Then update the program to get dynamic no of arguments(there can be 2,3,4 etc no of variables passed in when invoking the functions) 
+		The function should accept at least 2 variables and throw error if less then 2 are passed. The function should also validate the type of argument passed in
+</p>
+<script>
+var calc = function() {
+	if(arguments.length >= 2) {
+		var add = sub = mul = 0;
+		var div = arguments[0];
+		for(var i = 0; i < arguments.length; i++) {
+			add += arguments[i];
+		}
+		console.log(add);
+	}
+	else {
+		console.log("At least 2 values should be passed");
+	}
+}
+
+calc(15, 3);
+
+</script>
+</body>
+</html>
