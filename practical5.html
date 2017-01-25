@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>
+	Write a program that will do the following:<br />
+		1. Create a student class and then create multiple student objects out of it.<br />
+		2. Using a student object, add a method in the student class that will be then accessible from new objects created.
+</p>
+
+<script>
+
+class Student {								// Class declaration
+
+	constructor(firstName, lastName, age) {	// Constructor c should be small
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
+
+	getData() {
+		return 'My Full Name is: ' + this.firstName + ' ' + this.lastName + '\n' +
+		'Age is ' + this.age;
+	}
+
+}
+
+var stud1 = new Student('Shyam', 'Sapate', 25);
+var stud2 = new Student('Sagar', 'Sapate', 30, 'aaa', 24);		// Only first 3 values gets passed
+var stud3 = new Student();					// All values sets undefined
+
+console.log(stud1.getData());
+console.log(stud2.getData());
+console.log(stud3.getData());
+console.log('--------------------------------------------------');
+
+/* --------------------------------------------------------------------------- */
+
+var Triangle = class Triangle {				// Another way to declare class
+
+	constructor(base, height) {
+		this.base = Math.abs(base);			// Negative values gets turned in to positive
+		this.height = Math.abs(height);
+	}
+
+	calcArea() {
+		var text = 'Area of Triangle: ' + ( (1/2) * this.base * this.height );
+		return text;
+	}
+
+}
+
+var areaObj1 = new Triangle(2, 2);
+var areaObj2 = new Triangle(1, 2, 3);		// It will skip third value
+var areaObj3 = new Triangle();				// If object created using parameterized constructor we need to pass value
+var areaObj4 = new Triangle(-4, 6);
+
+console.log(areaObj1.calcArea());
+console.log(areaObj2.calcArea());
+console.log(areaObj3.calcArea());
+console.log(areaObj4.calcArea());
+console.log('--------------------------------------------------');
+
+/* --------------------------------------------------------------------------- */
+
+// Using extends keyword
+
+class Parent {
+
+	constructor(lastName) {
+		this.lastName = lastName;
+	}
+
+	getInfo() {
+		console.log('My Father Name is ' + this.lastName);
+	}
+
+}
+
+class Child extends Parent {
+
+	getInfo() {
+		console.log('My Son Name is ' + this.lastName);
+	}
+
+}
+
+var p1 = new Parent('zzz');
+var c1 = new Child('aaa');
+p1.getInfo();
+c1.getInfo();
+console.log('--------------------------------------------------');
+
+</script>
+</body>
+</html>
