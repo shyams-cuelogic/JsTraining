@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.calculator {
+	width: 20%;
+	margin: 0 auto;
+	background: wheat;
+	padding: 15px;
+	border-radius: 3px;
+	font-size: 2 5px;
+}
+.calculator input[type="text"] {
+	display: block;
+	width: 100%;
+	height: 20px;
+	margin: 0 0 10px 0;
+}
+.calculator .buttons button {
+	width: 23%;
+	float: left;
+	margin: 1%;
+}
+</style>
 </head>
 <body>
 <p>
@@ -12,35 +33,47 @@
 		5. Then update the program to get dynamic no of arguments(there can be 2,3,4 etc no of variables passed in when invoking the functions) 
 		The function should accept at least 2 variables and throw error if less then 2 are passed. The function should also validate the type of argument passed in
 </p>
+
 <script>
+
+/* Doing all operation using function call */
+
 var calc = function() {
 	if(arguments.length >= 2) {
 		var add = sub = div = 0;
 		var mul = 1;
-		console.log(sub);
-		for(var i = 0; i < arguments.length; i++) {
-			add = add + arguments[i];
-			mul = mul * arguments[i];
-			if(i === 0) {
-				sub = Math.abs(sub - arguments[i]);
-				div = arguments[i] / 1;
+		try {
+			for(var i = 0; i < arguments.length; i++) {
+				if(isNaN(arguments[i]) === false) {
+					add = add + arguments[i];
+					mul = mul * arguments[i];
+					if(i === 0) {
+						sub = Math.abs(sub - arguments[i]);
+						div = arguments[i] / 1;
+					}
+					else {
+						sub = sub - arguments[i];
+						div = div / arguments[i];
+					}
+				}
+				else  throw 'Not a Number'; {
+				}
 			}
-			else {
-				sub = sub - arguments[i];
-				div = div / arguments[i];
-			}
+			console.log("Addition of no's " + add);
+			console.log("Subtraction of no's " + sub);
+			console.log("Multiplication of no's " + mul);
+			console.log("Division of no's " + div);
 		}
-		console.log("Addition of no's " + add);
-		console.log("Subtraction of no's " + sub);
-		console.log("Multiplication of no's " + mul);
-		console.log("Division of no's " + div);
+		catch(err) {
+			console.log(err);
+		}
 	}
 	else {
 		console.log("At least 2 values should be passed");
 	}
 }
 
-calc(2, 3, 4, 2, 15, 112, 9);
+calc(2, 7, 3, 1, 9, 17, 317, 814, 8, 6, 45);
 
 </script>
 </body>

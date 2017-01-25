@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.calculator {
+	width: 20%;
+	margin: 0 auto;
+	background: wheat;
+	padding: 15px;
+	border-radius: 3px;
+	font-size: 2 5px;
+}
+.calculator #display {
+	display: block;
+	width: 100%;
+	height: 25px;
+	margin: 0 0 10px 0;
+	background: #fff;
+	overflow: hidden;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+.calculator #buttons button {
+	width: 23%;
+	float: left;
+	margin: 1%;
+}
+</style>
+</head>
+<body>
+<p>
+	Write a program to create functions that will do the following -<br />
+		1. Add 2 numbers<br />
+		2. Subtract 2 numbers<br />
+		3. Divide 2 numbers<br />
+		4. Multiply 2 numbers<br />
+		5. Then update the program to get dynamic no of arguments(there can be 2,3,4 etc no of variables passed in when invoking the functions) 
+		The function should accept at least 2 variables and throw error if less then 2 are passed. The function should also validate the type of argument passed in
+</p>
+
+<div class="calculator">
+	<div id="display"></div>
+	<div id="buttons">
+		<button class="btn operator">(</button>
+		<button class="btn operator">)</button>
+		<button class="btn operator">%</button>
+		<button class="btn operator">AC</button>
+		<button class="btn num">7</button>
+		<button class="btn num">8</button>
+		<button class="btn num">9</button>
+		<button class="btn operator">/</button>
+		<button class="btn num">4</button>
+		<button class="btn num">5</button>
+		<button class="btn num">6</button>
+		<button class="btn ">*</button>
+		<button class="btn num">1</button>
+		<button class="btn num">2</button>
+		<button class="btn num">3</button>
+		<button class="btn operator">-</button>
+		<button class="btn num">0</button>
+		<button class="btn operator">.</button>
+		<button id="eval">=</button>
+		<button class="btn operator">+</button>
+		<div style="clear: both;"></div>
+	</div>
+</div>
+
+<script>
+
+var display = document.getElementById('display');
+var num = document.querySelectorAll('.btn');
+var numLength = num.length;
+var result = document.getElementById('eval');
+console.log(num);
+
+for(var i = 0; i <= numLength; i++) {
+	try {
+		num[i].addEventListener("click", function() {
+			var num = this.innerHTML;
+			display.innerHTML += num;
+			console.log(display);
+		});
+	}
+	catch(err) {
+		console.log(err);
+	}
+}
+
+result.addEventListener("click", function() {
+	display.innerHTML = eval(display.innerHTML);
+	console.log(result);
+});
+
+</script>
+</body>
+</html>
