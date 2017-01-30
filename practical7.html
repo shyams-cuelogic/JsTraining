@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>
+	Write a program to calculate factorial using recursive strategy.
+</p>
+
+<script>
+
+// Using Recursive strategy
+
+var num = prompt("Please enter number for factorial using Recursive strategy") || 1;
+
+function factorial(num) {
+	if(num === 0) {
+		return 1;
+	}
+	else {
+		return (num * factorial(num - 1));		// Calling function repeatedly called Recursive
+	}
+}
+
+document.write("Factorial of " + num + ' is ' + factorial(num));
+document.write('\n');
+
+/* --------------------------------------------------------------------------- */
+
+// Using Non-Recursive strategy
+
+var num1 = prompt("Please enter number for factorial using Non-Recursive strategy");
+
+function factorial1(num1) {
+	if(num1 === 0) {
+		return 1;
+	}
+	else {
+		result = 1;
+		for(var i = 1; i <= num1; i++) {
+			result *= i;
+		}
+		return result;
+	}
+
+}
+
+document.write("Factorial of " + num1 + ' is ' + factorial1(num1));
+
+</script>
+</body>
+</html>
